@@ -126,8 +126,6 @@ typedef enum {
     SW1 = P2_1,
     SW2 = NOT_CONNECTED,
     SW3 = NOT_CONNECTED,
-    // Standardized button names
-    BUTTON1 = SW1,
 
     // USB bridge connected UART pins
     USBTX = P0_1,
@@ -177,10 +175,13 @@ typedef enum {
     SPI1_MISO = P1_2,
     SPI1_SS   = P1_3,
 
-    SPI2_SCK  = NOT_CONNECTED,
-    SPI2_MOSI = NOT_CONNECTED,
+    SPI2_SCK  = P2_4,
+    SPI2_MOSI = P2_5,
     SPI2_MISO = NOT_CONNECTED,
-    SPI2_SS   = NOT_CONNECTED,
+    SPI2_SS   = P2_7,
+
+    NHD12832_DC  = P5_7,
+    NHD12832_RES = P4_7,
 
     // BTLE Radio HCI
     HCI_SCK  = P5_0,
