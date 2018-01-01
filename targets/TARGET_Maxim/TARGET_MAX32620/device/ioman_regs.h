@@ -471,6 +471,24 @@ typedef struct {
     __IO uint32_t spib_ack;                             /*  0x008C          SPI Bridge I/O Mode Acknowledge                                              */
     __IO uint32_t owm_req;                              /*  0x0090          1-Wire Master I/O Mode Request                                               */
     __IO uint32_t owm_ack;                              /*  0x0094          1-Wire Master I/O Mode Acknowledge                                           */
+    __IO uint32_t spis_req;                             /*  0x0098          SPI Slave I/O Mode Request                                                   */
+    __IO uint32_t spis_ack;                             /*  0x009C          SPI Slave I/O Mode Acknowledge                                               */
+    __R  uint32_t rsv0A0[24];                           /*  0x00A0-0x00FC                                                                                */
+    __IO uint32_t use_vddioh_0;                         /*  0x0100          Enable VDDIOH Register 0                                                     */
+    __IO uint32_t use_vddioh_1;                         /*  0x0104          Enable VDDIOH Register 1                                                     */
+    __IO uint32_t use_vddioh_2;                         /*  0x0108          Enable VDDIOH Register 2                                                     */
+    __R  uint32_t rsv10C;                               /*  0x010C                                                                                       */
+    __IO uint32_t pad_mode;                             /*  0x0110          Pad Mode Control Register                                                    */
+    __R  uint32_t rsv114[27];                           /*  0x0114-0x017C                                                                                */
+    __IO uint32_t wud_req2;                             /*  0x0180          Wakeup Detect Mode Request Register 2 (P8)                                   */
+    __R  uint32_t rsv184;                               /*  0x0184                                                                                       */
+    __IO uint32_t wud_ack2;                             /*  0x0188          Wakeup Detect Mode Acknowledge Register 2 (P8)                               */
+    __R  uint32_t rsv18C;                               /*  0x018C                                                                                       */
+    __IO uint32_t ali_req2;                             /*  0x0190          Analog Input Request Register 2 (P8)                                         */
+    __R  uint32_t rsv194;                               /*  0x0194                                                                                       */
+    __IO uint32_t ali_ack2;                             /*  0x0198          Analog Input Acknowledge Register 2 (P8)                                     */
+    __R  uint32_t rsv19C;                               /*  0x019C                                                                                       */
+    __IO uint32_t ali_connect2;                         /*  0x01A0          Analog I/O Connection Control Register 2                                     */
 } mxc_ioman_regs_t;
 
 
