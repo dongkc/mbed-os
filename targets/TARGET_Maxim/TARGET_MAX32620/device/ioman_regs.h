@@ -52,6 +52,9 @@ extern "C" {
 #ifndef __O
 #define __O  volatile
 #endif
+#ifndef __R
+#define __R  volatile const
+#endif
 
 /*
     Enum type definitions for register fields in this module

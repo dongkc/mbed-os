@@ -33,6 +33,20 @@
 
 #include "cmsis.h"
 #include "pwrman_regs.h"
+#include "ioman_regs.h"
+//#include "TARGET_MAX32620HSP/PinName.h"
+//#include "./PinName.h"
+
+//static void SYS_IOMAN_UseVDDIOH(unsigned int pinname)
+static void SYS_IOMAN_UseVDDIOH(unsigned int port, unsigned int pin)
+{
+  /* unsigned int port = PINNAME_TO_PORT(pinname); */
+  /* unsigned int pin  = PINNAME_TO_PIN(pinname); */
+
+    unsigned int startbit = port * 8 + pin;
+    volatile uint32_t *use_vddioh_reg = &MXC_IOMAN->use_vddioh_0 + (startbit / 32);
+    *use_vddioh_reg |= 1 << (startbit % 32);
+}
 
 //******************************************************************************
 // This function will get called early in system initialization
@@ -48,4 +62,16 @@ void low_level_init(void)
     } else {
         *((volatile uint32_t*)MXC_SYS_MEM_BASE) = 0;
     }
+
+
+    // SPI2_SCK P2_4
+    SYS_IOMAN_UseVDDIOH(2, 4);
+    // SPI2_MOSI P2_5
+    SYS_IOMAN_UseVDDIOH(2, 5);
+    // SPI2_SS P2_7
+    SYS_IOMAN_UseVDDIOH(2, 7);
+    /* NHD12832_DC P5_7 */
+    SYS_IOMAN_UseVDDIOH(5, 7);
+    // NHD12832_RES P4_7
+    SYS_IOMAN_UseVDDIOH(4, 7);
 }
